@@ -1,11 +1,28 @@
 package br.edu.infnet.AppParticipacaoAtleta.model.domain;
 
 public class Natacao extends Evento {
-	public String estilo;
-	public int distancia;
+	private String estilo;
+	private int distancia;
 	
+@Override
 public String toString() {
-	return estilo + ";" + distancia;
+	return super.toString() + ";" + estilo + ";" + distancia;
+}
+
+public String getEstilo() {
+	return estilo;
+}
+
+public void setEstilo(String estilo) {
+	this.estilo = estilo;
+}
+
+public int getDistancia() {
+	return distancia;
+}
+
+public void setDistancia(int distancia) {
+	this.distancia = distancia;
 }
 
 }

@@ -11,19 +11,21 @@ public class NatacaoTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		System.out.println("## Cadastramento de Natação ##");
+		
 		Natacao n1 = new Natacao ();
-		n1.estilo = "costas";
-		n1.distancia = 50;
+		n1.setEstilo("costas");
+		n1.setDistancia(50);
 		System.out.println ("Natacao - " + n1);
 		
 		Natacao n2 = new Natacao ();
-		n2.estilo = "peito";
-		n2.distancia = 100;
+		n2.setEstilo("peito");
+		n2.setDistancia(100);
 		System.out.println ("Natacao - " + n2);
 		
 		Natacao n3 = new Natacao ();
-		n3.estilo = "borboleta";
-		n3.distancia = 100;
+		n3.setEstilo("borboleta");
+		n3.setDistancia(100);
 		System.out.println ("Natacao - " + n3);
 		
 	}

@@ -1,12 +1,16 @@
 package br.edu.infnet.AppParticipacaoAtleta;
 
-import java.text.SimpleDateFormat;
+
+import java.time.LocalDateTime;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.AppParticipacaoAtleta.model.domain.Evento;
+
+import br.edu.infnet.AppParticipacaoAtleta.model.domain.Ciclismo;
+import br.edu.infnet.AppParticipacaoAtleta.model.domain.Corrida;
+import br.edu.infnet.AppParticipacaoAtleta.model.domain.Natacao;
 
 
 @Component
@@ -14,32 +18,39 @@ public class EventoTeste implements ApplicationRunner{
 
 @Override
 public void run(ApplicationArguments args) throws Exception {
-	Evento e1 = new Evento ();
-	e1.codigo = 001;
-	e1.nome = "Corrida da Primavera";
-	e1.dt_realizacao = '26-11-2022';
-	e1.hora_inicio = '10:00';
-	e1.assistencia_pcd = false;
-	e1.tipo_assistencia_pcd = "";
-	System.out.println ("Evento - " + e1);
-
-	Evento e2 = new Evento ();
-	e2.codigo = 002;
-	e2.nome = "Riders 2022";
-	e2.dt_realizacao = '27-11-2022';
-	e2.hora_inicio = '09:00';
-	e2.assistencia_pcd = true;
-	e2.tipo_assistencia_pcd = "handbikes e triciclos";
-	System.out.println ("Evento - " + e2);
+	System.out.println("## Cadastramento de Eventos ##");
+		
+	Ciclismo c1 = new Ciclismo ();
+	c1.setCategoria("montanha");
+	c1.setClassificacao("C1");
+	c1.setTipo_bicicleta("convencional");
+	c1.setCodigo(002);
+	c1.setNome("Riders 2022");
+	c1.setDt_realizacao(LocalDateTime.now());
+	c1.setAssistencia_pcd(true);
+	c1.setTipo_assistencia_pcd("handbikes e triciclos");
+	System.out.println ("Evento - " + c1);
 	
-	Evento e3 = new Evento ();
-	e3.codigo = 003;
-	e3.nome = "Circuito Verão de Natação";
-	e3.dt_realizacao = '05-01-2023' ;
-	e3.hora_inicio = '09:00';
-	e3.assistencia_pcd = false;
-	e3.tipo_assistencia_pcd = "";
-	System.out.println ("Evento - " + e3);
+	Corrida cr1 = new Corrida ();
+	cr1.setTipo("rua");
+	cr1.setPercurso(21);
+	cr1.setObstaculo(false);
+	cr1.setCodigo(001);
+	cr1.setNome("Corrida da Primavera");
+	cr1.setDt_realizacao(LocalDateTime.now());
+	cr1.setAssistencia_pcd(false);
+	cr1.setTipo_assistencia_pcd("ajudante cadeirante");
+	System.out.println ("Evento - " + cr1);
+
+	Natacao n1 = new Natacao ();
+	n1.setEstilo("costas");
+	n1.setDistancia(50);
+	n1.setCodigo(003);
+	n1.setNome("Circuito Verão de Natação");
+	n1.setDt_realizacao(LocalDateTime.now());
+	n1.setAssistencia_pcd(false);
+	n1.setTipo_assistencia_pcd("rampas de acesso");
+	System.out.println ("Evento - " + n1);
 }
 
 }

@@ -1,8 +1,18 @@
 package br.edu.infnet.AppParticipacaoAtleta.model.domain;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 public class Participacao {
-	public Date dt_inscricao;
+	private LocalDateTime dt_inscricao;
+
+	public LocalDateTime getDt_inscricao() {
+		return dt_inscricao;
+	}
+
+	public void setDt_inscricao(LocalDateTime dt_inscricao) {
+		this.dt_inscricao = dt_inscricao;
+	}
+
 
 }
