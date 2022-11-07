@@ -2,7 +2,7 @@ package br.edu.infnet.AppParticipacaoAtleta.model.domain;
 
 public class Natacao extends Evento {
 	private String estilo;
-	private int distancia;
+	private Integer distancia;
 	
 @Override
 public String toString() {
@@ -17,12 +17,14 @@ public void setEstilo(String estilo) {
 	this.estilo = estilo;
 }
 
-public int getDistancia() {
+public Integer getDistancia() {
 	return distancia;
 }
 
-public void setDistancia(int distancia) {
+public void setDistancia(Integer distancia) {
 	this.distancia = distancia;
 }
+
+
 
 }

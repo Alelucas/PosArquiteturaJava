@@ -1,20 +1,28 @@
 package br.edu.infnet.AppParticipacaoAtleta.model.domain;
 
-import java.time.LocalDateTime;
-
 
 public class Atleta {
+	private Integer id;
 	private String cpf;
 	private String nome;
-	private LocalDateTime dt_nascimento;
 	private Boolean genero;
 	private Boolean pcd;
 	
 	
 	@Override
 	public String toString() {
-		return cpf + ";" + nome + ";" + dt_nascimento +  ";" + genero + ";" + pcd;
+		return id + ";" + cpf + ";" + nome + ";" +  ";" + genero + ";" + pcd;
 }
+
+
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 
 	public String getCpf() {
@@ -37,16 +45,6 @@ public class Atleta {
 	}
 
 
-	public LocalDateTime getDt_nascimento() {
-		return dt_nascimento;
-	}
-
-
-	public void setDt_nascimento(LocalDateTime dt_nascimento) {
-		this.dt_nascimento = dt_nascimento;
-	}
-
-
 	public Boolean getGenero() {
 		return genero;
 	}
@@ -65,5 +63,8 @@ public class Atleta {
 	public void setPcd(Boolean pcd) {
 		this.pcd = pcd;
 	}
+
+
+	
 
 }

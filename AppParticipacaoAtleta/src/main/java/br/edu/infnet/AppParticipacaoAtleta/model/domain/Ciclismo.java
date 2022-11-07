@@ -33,4 +33,6 @@ public String getTipo_bicicleta() {
 public void setTipo_bicicleta(String tipo_bicicleta) {
 	this.tipo_bicicleta = tipo_bicicleta;
 }
+
+
 }

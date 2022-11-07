@@ -2,7 +2,7 @@ package br.edu.infnet.AppParticipacaoAtleta.model.domain;
 
 public class Corrida extends Evento {
 	private String tipo;
-	private int percurso;
+	private Integer percurso;
 	private Boolean obstaculo;
 	
 @Override
@@ -18,11 +18,11 @@ public void setTipo(String tipo) {
 	this.tipo = tipo;
 }
 
-public int getPercurso() {
+public Integer getPercurso() {
 	return percurso;
 }
 
-public void setPercurso(int percurso) {
+public void setPercurso(Integer percurso) {
 	this.percurso = percurso;
 }
 
@@ -33,5 +33,7 @@ public Boolean getObstaculo() {
 public void setObstaculo(Boolean obstaculo) {
 	this.obstaculo = obstaculo;
 }
+
+
 
 }
