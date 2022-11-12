@@ -1,5 +1,10 @@
 package br.edu.infnet.AppParticipacaoAtleta.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tcorrida")
 public class Corrida extends Evento {
 	private String tipo;
 	private Integer percurso;

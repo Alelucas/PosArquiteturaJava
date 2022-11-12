@@ -1,12 +1,15 @@
 package br.edu.infnet.AppParticipacaoAtleta.model.domain;
 
 import java.time.LocalDateTime;
+import org.springframework.data.annotation.Transient;
 
 
 public class Participacao {
 	private Integer id;
 	private LocalDateTime dt_inscricao;
+	@Transient
 	private Atleta atleta;
+	@Transient
 	private Evento eventos;
 	
 	@Override

@@ -2,15 +2,20 @@ package br.edu.infnet.AppParticipacaoAtleta;
 
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
-import br.edu.infnet.AppParticipacaoAtleta.controller.CorridaController;
 import br.edu.infnet.AppParticipacaoAtleta.model.domain.Corrida;
+import br.edu.infnet.AppParticipacaoAtleta.model.service.CorridaService;
 
+@Order(6)
 @Component
 public class CorridaTeste implements ApplicationRunner {
+	
+	@Autowired
+	private CorridaService corridaService;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -25,7 +30,7 @@ public class CorridaTeste implements ApplicationRunner {
 		cr1.setPercurso(21);
 		cr1.setObstaculo(false);
 		System.out.println (" > " + cr1);
-		CorridaController.incluir(cr1);
+		corridaService.incluir(cr1);
 		
 		Corrida cr2 = new Corrida ();
 		cr2.setNome("Runners 2022");
@@ -36,7 +41,7 @@ public class CorridaTeste implements ApplicationRunner {
 		cr2.setPercurso(200);
 		cr2.setObstaculo(true);
 		System.out.println (" > " + cr2);
-		CorridaController.incluir(cr2);
+		corridaService.incluir(cr2);
 			
 		Corrida cr3 = new Corrida ();
 		cr3.setNome("Corrida de Verão");
@@ -47,7 +52,7 @@ public class CorridaTeste implements ApplicationRunner {
 		cr3.setPercurso(100);
 		cr3.setObstaculo(false);
 		System.out.println (" > " + cr3);
-		CorridaController.incluir(cr3);
+		corridaService.incluir(cr3);
 	}
 
 }

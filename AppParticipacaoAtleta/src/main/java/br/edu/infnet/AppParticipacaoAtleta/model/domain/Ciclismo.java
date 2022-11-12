@@ -1,5 +1,10 @@
 package br.edu.infnet.AppParticipacaoAtleta.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tciclismo")
 public class Ciclismo extends Evento {
 	private String categoria;
 	private String classificacao;

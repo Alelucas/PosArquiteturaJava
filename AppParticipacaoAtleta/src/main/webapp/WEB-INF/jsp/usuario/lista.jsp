@@ -5,35 +5,31 @@
 <head>
 	<meta charset="ISO-8859-1">
 	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<title>Cadastramento de Atletas</title>
+	<title>Cadastramento de Usuario</title>
 </head>
 <body>
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>	
 	<div class="container mt-3">
-	  <h3>Atleta: ${listagem.size()}</h3>
-	  	  
-	  <h4><a href="/atleta"> Novo Atleta </a></h4>
-	   
+	  <h3>Usuario: ${listagem.size()}</h3>
+		  
 		    <table class="table table-striped">
 	    <thead>
 	      <tr>
 	        <th>ID</th>
-	        <th>CPF</th>
 	        <th>Nome</th>
-	        <th>Gênero</th>
-	        <th>PCD</th>       
+	        <th>Email</th>
+	        <th>Senha</th>   
 	        <th></th> 
 	      </tr>
 	    </thead>
 	    <tbody>
-	    	<c:forEach var='a' items="${listagem}">	    
+	    	<c:forEach var='u' items="${listagem}">	    
 	      		<tr>
-			        <td>${a.id}</td>
-			        <td>${a.cpf}</td>
-			        <td>${a.nome}</td>
-			        <td>${a.genero}</td>
-			        <td>${a.pcd}</td>	
-			        <td><a href="/atleta/${a.id}/excluir">excluir</a></td>		 
+			        <td>${u.id}</td>
+			        <td>${u.nome}</td>
+			        <td>${u.email}</td>
+			        <td>${u.senha}</td>
+				      <td><a href="/usuario/${u.id}/excluir">excluir</a></td>		 
 	      		</tr>
 	      	</c:forEach>	   
 	    </tbody>

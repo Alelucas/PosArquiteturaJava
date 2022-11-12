@@ -2,16 +2,21 @@ package br.edu.infnet.AppParticipacaoAtleta;
 
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
-import br.edu.infnet.AppParticipacaoAtleta.controller.NatacaoController;
 import br.edu.infnet.AppParticipacaoAtleta.model.domain.Natacao;
+import br.edu.infnet.AppParticipacaoAtleta.model.service.NatacaoService;
 
+@Order(7)
 @Component
 public class NatacaoTeste implements ApplicationRunner {
 
+	@Autowired
+	private NatacaoService natacaoService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("## Cadastramento de Natação ##");
@@ -24,7 +29,7 @@ public class NatacaoTeste implements ApplicationRunner {
 		n1.setEstilo("costas");
 		n1.setDistancia(50);
 		System.out.println (" > " + n1);
-		NatacaoController.incluir(n1);
+		natacaoService.incluir(n1);
 		
 		Natacao n2 = new Natacao ();
 		n2.setNome("Circuito Primavera de Natação");
@@ -34,7 +39,7 @@ public class NatacaoTeste implements ApplicationRunner {
 		n2.setEstilo("peito");
 		n2.setDistancia(100);
 		System.out.println (" > " + n2);
-		NatacaoController.incluir(n2);
+		natacaoService.incluir(n2);
 		
 		Natacao n3 = new Natacao ();
 		n3.setNome("Circuito Outono de Natação");
@@ -44,7 +49,7 @@ public class NatacaoTeste implements ApplicationRunner {
 		n3.setEstilo("borboleta");
 		n3.setDistancia(100);
 		System.out.println (" > " + n3);
-		NatacaoController.incluir(n3);
+		natacaoService.incluir(n3);
 		
 	}
 

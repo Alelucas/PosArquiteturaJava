@@ -1,5 +1,10 @@
 package br.edu.infnet.AppParticipacaoAtleta.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tnatacao")
 public class Natacao extends Evento {
 	private String estilo;
 	private Integer distancia;

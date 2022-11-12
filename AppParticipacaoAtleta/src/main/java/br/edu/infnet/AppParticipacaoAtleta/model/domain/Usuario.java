@@ -1,31 +1,32 @@
 package br.edu.infnet.AppParticipacaoAtleta.model.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tatleta")
-public class Atleta {
+@Table(name = "tusuario")
+public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String cpf;
 	private String nome;
-	private Boolean genero;
-	private Boolean pcd;	
-	@ManyToOne
+	private String email;
+	private String senha;
+	@OneToMany
 	@JoinColumn(name = "idUsuario")
-	private Usuario usuario;
+	private List<Atleta> atletas;
 	
 	
 	@Override
 	public String toString() {
-		return id + ";" + cpf + ";" + nome + ";" +  ";" + genero + ";" + pcd;
+		return id + ";" + nome + ";" + email + ";" + senha;
 }
 
 
@@ -39,16 +40,6 @@ public class Atleta {
 	}
 
 
-	public String getCpf() {
-		return cpf;
-	}
-
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-
 	public String getNome() {
 		return nome;
 	}
@@ -59,36 +50,35 @@ public class Atleta {
 	}
 
 
-	public Boolean getGenero() {
-		return genero;
+	public String getEmail() {
+		return email;
 	}
 
 
-	public void setGenero(Boolean genero) {
-		this.genero = genero;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 
-	public Boolean getPcd() {
-		return pcd;
+	public String getSenha() {
+		return senha;
 	}
 
 
-	public void setPcd(Boolean pcd) {
-		this.pcd = pcd;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 
-	public Usuario getUsuario() {
-		return usuario;
+	public List<Atleta> getAtletas() {
+		return atletas;
 	}
 
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setAtletas(List<Atleta> atletas) {
+		this.atletas = atletas;
 	}
 
     
-	
 
 }
