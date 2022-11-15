@@ -1,16 +1,38 @@
 package br.edu.infnet.AppParticipacaoAtleta.model.domain;
 
 import java.time.LocalDateTime;
-import org.springframework.data.annotation.Transient;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
+@Entity
+@Table(name = "tparticipacao")
 public class Participacao {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private LocalDateTime dt_inscricao;
-	@Transient
+	
+	@OneToOne(cascade = CascadeType.DETACH)
+	@JoinColumn(name = "idAtleta")
 	private Atleta atleta;
-	@Transient
-	private Evento eventos;
+	
+	@ManyToMany(cascade = CascadeType.DETACH)
+	private List<Evento> eventos;
+	
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 	
 	@Override
 	public String toString() {
@@ -41,14 +63,24 @@ public class Participacao {
 		this.atleta = atleta;
 	}
 
-	public Evento getEventos() {
+	public List<Evento> getEventos() {
 		return eventos;
 	}
 
-	public void setEventos(Evento eventos) {
+	public void setEventos(List<Evento> eventos) {
 		this.eventos = eventos;
 	}
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	
+	
 		
 	}
 	

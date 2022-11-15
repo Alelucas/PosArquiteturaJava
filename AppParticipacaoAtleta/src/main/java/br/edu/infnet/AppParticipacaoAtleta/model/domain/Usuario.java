@@ -2,12 +2,14 @@ package br.edu.infnet.AppParticipacaoAtleta.model.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,9 +21,22 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private String senha;
+	
 	@OneToMany
 	@JoinColumn(name = "idUsuario")
 	private List<Atleta> atletas;
+	
+	@OneToMany
+	@JoinColumn(name = "idUsuario")
+	private List<Evento> eventos;
+	
+	@OneToMany
+	@JoinColumn(name = "idUsuario")
+	private List<Participacao> participacao;
+	
+	@OneToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "idendereco")
+	private Endereco endereco;
 	
 	
 	@Override
@@ -79,6 +94,38 @@ public class Usuario {
 		this.atletas = atletas;
 	}
 
+
+	public List<Evento> getEventos() {
+		return eventos;
+	}
+
+
+	public void setEventos(List<Evento> eventos) {
+		this.eventos = eventos;
+	}
+
+
+	public List<Participacao> getParticipacao() {
+		return participacao;
+	}
+
+
+	public void setParticipacao(List<Participacao> participacao) {
+		this.participacao = participacao;
+	}
+
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+
+	
     
 
 }

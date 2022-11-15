@@ -4,6 +4,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.edu.infnet.AppParticipacaoAtleta.model.domain.Atleta;
+import br.edu.infnet.AppParticipacaoAtleta.model.domain.Usuario;
 import br.edu.infnet.AppParticipacaoAtleta.model.repository.AtletaRepository;
 
 
@@ -25,4 +26,7 @@ public class AtletaService {
 		return (Collection<Atleta>) atletaRepository.findAll();
 	}
 
+	public  Collection<Atleta> obterLista(Usuario usuario){
+		return (Collection<Atleta>) atletaRepository.obterLista(usuario.getId());
+	}
 }

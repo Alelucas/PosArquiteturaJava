@@ -20,8 +20,8 @@ public class AtletaController {
 	private AtletaService atletaService;
 	
 	@GetMapping(value = "/atleta/lista")
-		public String telaLista(Model model) {		
-			model.addAttribute("listagem", atletaService.obterLista());
+		public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {		
+			model.addAttribute("listagem", atletaService.obterLista(usuario));
 			return "atleta/lista";
     }
 	

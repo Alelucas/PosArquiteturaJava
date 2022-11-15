@@ -18,6 +18,7 @@ public class Atleta {
 	private String nome;
 	private Boolean genero;
 	private Boolean pcd;	
+	
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")
 	private Usuario usuario;

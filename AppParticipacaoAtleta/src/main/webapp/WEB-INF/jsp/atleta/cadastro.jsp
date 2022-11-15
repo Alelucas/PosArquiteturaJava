@@ -23,13 +23,27 @@
 			</div>
 			
 			<div class="form-group">
-				<label>Genero:</label>
-				 <input type="radio" class="form-control" placeholder="Informe seu gênero" name="genero">
+				<label>Gênero</label>
+				    <div class="form-check">
+				        <input type="radio" class="form-check-input" name="genero" value="true"> Feminino
+				        <label class="form-check-label"></label> 
+			        </div>							
+			       <div class="form-check">
+				        <input type="radio" class="form-check-input" name="genero" value="false"> Masculino
+				        <label class="form-check-label"></label> 
+			       </div>
 			</div>
 			
 			<div class="form-group">
-				<label>PCD:</label>
-				 <input type="radio" class="form-control" placeholder="Informe se PCD" name="pcd">
+				<label>É PCD?</label>
+				    <div class="form-check">
+				        <input type="radio" class="form-check-input" name="pcd" value="true"> Sim
+				        <label class="form-check-label"></label> 
+			        </div>							
+			       <div class="form-check">
+				        <input type="radio" class="form-check-input" name="pcd" value="false"> Nao
+				        <label class="form-check-label"></label> 
+			       </div>
 			</div>
 			
 			 <button type="submit" class="btn btn-default">Cadastrar</button>

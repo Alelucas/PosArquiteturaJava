@@ -12,6 +12,8 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>	
 	<div class="container mt-3">
 	  <h3>Natação: ${listagem.size()}</h3>
+	  
+	   <h4><a href="/natacao"> Nova Natação </a></h4>
 		  
 		    <table class="table table-striped">
 	    <thead>

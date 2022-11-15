@@ -1,27 +1,31 @@
 package br.edu.infnet.AppParticipacaoAtleta.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.edu.infnet.AppParticipacaoAtleta.model.domain.Evento;
+import br.edu.infnet.AppParticipacaoAtleta.model.domain.Usuario;
+import br.edu.infnet.AppParticipacaoAtleta.model.repository.EventoRepository;
 
 @Service
 public class EventoService {
 
-	private static Map<Integer, Evento> mapa = new HashMap<Integer, Evento> ();
-	private static Integer id = 1;
+	@Autowired
+	private EventoRepository eventoRepository;
 	
 	public  void incluir(Evento evento) {
-		evento.setId(id++);
-		mapa.put(evento.getId(), evento);
-	}
-		
-	public  void excluir(Integer id) {
-		mapa.remove(id);
+		eventoRepository.save(evento);
 	}
 	
+	public void excluir(Integer id) {
+		eventoRepository.deleteById(id);
+	}
+		
 	public  Collection<Evento> obterLista(){
-		return mapa.values();
+		return (Collection<Evento>) eventoRepository.findAll();
+	}
+	
+	public  Collection<Evento> obterLista(Usuario usuario){
+		return (Collection<Evento>) eventoRepository.obterLista(usuario.getId());
 	}
 }
